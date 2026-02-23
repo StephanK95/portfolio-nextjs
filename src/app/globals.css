@@ -40,13 +40,13 @@ body {
   background-position: center;
 }
 
+/* Hero-Hintergrundbild – Position wird per Framer Motion animiert */
 .hero-bg-image {
-  background-image: url("/assets/hero-bg-2-aurora.webp");
-  background-size: cover;
-  background-position: center;
+  background-image: url("/assets/stephan95_abstract_deep_blue_purple_flowing_waves_background__ef77ba99-d4b3-475b-a308-ec2ca0afd382_0.png");
+  background-size: 140% 140%;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 .hero-bg::before {
@@ -67,16 +67,7 @@ body {
   pointer-events: none;
 }
 
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 40%;
-  background: linear-gradient(to bottom, transparent, #0a091a);
-  pointer-events: none;
-}
+/* Übergang zur nächsten Section: weicher Gradient-Overlay in Hero.tsx (Framer Motion) */
 
 .hero-speckles {
   background-image:

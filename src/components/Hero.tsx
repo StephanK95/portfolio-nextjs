@@ -19,13 +19,48 @@ const item = {
 
 const spring = { type: "spring" as const, stiffness: 300, damping: 24 };
 
+/* Drift-Animation für die Wellen-Linien (Framer Motion statt Keyframes) */
+const bgDriftTransition = {
+  duration: 18,
+  repeat: Infinity,
+  repeatType: "reverse" as const,
+  ease: "easeInOut",
+};
+
 export default function Hero() {
   return (
     <section
       id="hero"
       className="hero-bg hero-speckles min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden"
     >
-      <div className="hero-bg-image absolute inset-0 z-0" aria-hidden />
+      <motion.div
+        className="hero-bg-image absolute inset-0 z-0"
+        aria-hidden
+        animate={{
+          backgroundPosition: [
+            "45% 48%",
+            "62% 56%",
+            "48% 44%",
+            "45% 48%",
+          ],
+        }}
+        transition={bgDriftTransition}
+      />
+      {/* Weicher Übergang zur nächsten Section – langer Gradient per Framer Motion */}
+      <motion.div
+        className="absolute inset-x-0 bottom-0 z-[1] pointer-events-none"
+        style={{
+          height: "85%",
+          background: `linear-gradient(to bottom, 
+            transparent 0%, 
+            rgba(10, 9, 26, 0.08) 20%, 
+            rgba(10, 9, 26, 0.22) 40%, 
+            rgba(10, 9, 26, 0.45) 60%, 
+            rgba(10, 9, 26, 0.72) 78%, 
+            #0a091a 100%)`,
+        }}
+        initial={false}
+      />
       <motion.div
         className="relative z-10 flex flex-col items-center text-center max-w-4xl pt-16 sm:pt-20"
         variants={container}
