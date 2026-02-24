@@ -24,7 +24,7 @@ const bgDriftTransition = {
     duration: 18,
     repeat: Infinity,
     repeatType: 'reverse' as const,
-    ease: [0.42, 0, 0.58, 1], // easeInOut cubic bezier
+    ease: [0.42, 0, 0.58, 1] as const, // easeInOut cubic bezier
 };
 
 export default function Hero() {
